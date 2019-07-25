@@ -1,0 +1,199 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (synchronizer.cpp:1428), pid=3332, tid=4296
+#  guarantee(mid->header()->is_neutral()) failed: invariant
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_11-b12) (build 1.8.0_11-b12)
+# Java VM: Java HotSpot(TM) Client VM (25.11-b03 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x14c76400):  VMThread [stack: 0x046e0000,0x04730000] [id=4296]
+
+Stack: [0x046e0000,0x04730000],  sp=0x0472f5e0,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x19231b]
+V  [jvm.dll+0x18b3b5]
+V  [jvm.dll+0x15dbbf]
+V  [jvm.dll+0x15df73]
+V  [jvm.dll+0x151506]
+V  [jvm.dll+0x152870]
+V  [jvm.dll+0x169915]
+V  [jvm.dll+0x169b22]
+V  [jvm.dll+0x1a9316]
+C  [msvcr100.dll+0x5c556]
+C  [msvcr100.dll+0x5c600]
+C  [kernel32.dll+0x133ca]
+C  [ntdll.dll+0x39ed2]
+C  [ntdll.dll+0x39ea5]
+
+VM_Operation (0x048e3c38): GenCollectForAllocation, mode: safepoint, requested by thread 0x0077c400
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x14ce0800 JavaThread "Service Thread" daemon [_thread_blocked, id=4276, stack(0x158b0000,0x15900000)]
+  0x14ccac00 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=1212, stack(0x157a0000,0x157f0000)]
+  0x14cc4c00 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=3356, stack(0x15710000,0x15760000)]
+  0x14cc3400 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=3916, stack(0x15680000,0x156d0000)]
+  0x14cbfc00 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=684, stack(0x15430000,0x15480000)]
+  0x14cb3000 JavaThread "Attach Listener" daemon [_thread_blocked, id=4208, stack(0x15170000,0x151c0000)]
+  0x14cba800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1588, stack(0x14f10000,0x14f60000)]
+  0x14c7e400 JavaThread "Finalizer" daemon [_thread_blocked, id=3052, stack(0x04740000,0x04790000)]
+  0x14c79800 JavaThread "Reference Handler" daemon [_thread_blocked, id=4200, stack(0x00ad0000,0x00b20000)]
+  0x0077c400 JavaThread "main" [_thread_blocked, id=4580, stack(0x00a70000,0x00ac0000)]
+
+Other Threads:
+=>0x14c76400 VMThread [stack: 0x046e0000,0x04730000] [id=4296]
+  0x14cf2800 WatcherThread [stack: 0x15970000,0x159c0000] [id=1656]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0077a638] Safepoint_lock - owner thread: 0x14c76400
+[0x0077a6a0] Threads_lock - owner thread: 0x14c76400
+[0x0077aab0] Heap_lock - owner thread: 0x0077c400
+
+Heap:
+ def new generation   total 4928K, used 4416K [0x04800000, 0x04d50000, 0x09d50000)
+  eden space 4416K, 100% used [0x04800000, 0x04c50000, 0x04c50000)
+  from space 512K,   0% used [0x04c50000, 0x04c50000, 0x04cd0000)
+  to   space 512K,   0% used [0x04cd0000, 0x04cd0000, 0x04d50000)
+ tenured generation   total 10944K, used 0K [0x09d50000, 0x0a800000, 0x14800000)
+   the space 10944K,   0% used [0x09d50000, 0x09d50000, 0x09d50200, 0x0a800000)
+ Metaspace       used 2074K, capacity 2312K, committed 2368K, reserved 4480K
+
+Card table byte_map: [0x00930000,0x009c0000] byte_map_base: 0x0090c000
+
+Polling page: 0x001d0000
+
+CodeCache: size=32768Kb used=697Kb max_used=697Kb free=32070Kb
+ bounds [0x026b0000, 0x02760000, 0x046b0000]
+ total_blobs=164 nmethods=33 adapters=72
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 967.117 Thread 0x14ccac00   28  s          java.lang.Throwable::fillInStackTrace (29 bytes)
+Event: 967.118 Thread 0x14ccac00 nmethod 28 0x0275d148 code [0x0275d250, 0x0275d45c]
+Event: 967.118 Thread 0x14ccac00   30             java.lang.RuntimeException::<init> (5 bytes)
+Event: 967.118 Thread 0x14ccac00 nmethod 30 0x0275d788 code [0x0275d890, 0x0275d95c]
+Event: 967.118 Thread 0x14ccac00   31             java.lang.Exception::<init> (5 bytes)
+Event: 967.118 Thread 0x14ccac00 nmethod 31 0x0275da08 code [0x0275db20, 0x0275ddac]
+Event: 967.118 Thread 0x14ccac00   32             java.lang.Throwable::<init> (29 bytes)
+Event: 967.119 Thread 0x14ccac00 nmethod 32 0x0275dec8 code [0x0275dfe0, 0x0275e26c]
+Event: 967.119 Thread 0x14ccac00   33             java.lang.IllegalMonitorStateException::<init> (5 bytes)
+Event: 967.119 Thread 0x14ccac00 nmethod 33 0x0275e348 code [0x0275e440, 0x0275e4dc]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4ee30) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4efe0) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4f190) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4f340) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4f4f0) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4f6a0) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4f850) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4fa00) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4fbb0) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+Event: 967.183 Thread 0x0077c400 Exception <a 'java/lang/IllegalMonitorStateException'> (0x04c4fd60) thrown at [D:\re\puppet\workspace\8-2-build-windows-i586-cygwin\jdk8u11\648\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 594]
+
+Events (10 events):
+Event: 893.884 Executing VM operation: RedefineClasses done
+Event: 893.887 Executing VM operation: ChangeBreakpoints
+Event: 893.887 Executing VM operation: ChangeBreakpoints done
+Event: 893.889 Executing VM operation: ChangeBreakpoints
+Event: 893.889 Executing VM operation: ChangeBreakpoints done
+Event: 934.737 Executing VM operation: ChangeBreakpoints
+Event: 934.737 Executing VM operation: ChangeBreakpoints done
+Event: 951.524 Executing VM operation: ChangeBreakpoints
+Event: 951.524 Executing VM operation: ChangeBreakpoints done
+Event: 967.183 Executing VM operation: GenCollectForAllocation
+
+
+Dynamic libraries:
+0x00bb0000 - 0x00be0000 	C:\Program Files (x86)\Java\jre8\bin\javaw.exe
+0x77700000 - 0x77880000 	C:\Windows\SysWOW64\ntdll.dll
+0x75f80000 - 0x76090000 	C:\Windows\syswow64\kernel32.dll
+0x75310000 - 0x75356000 	C:\Windows\syswow64\KERNELBASE.dll
+0x753c0000 - 0x75460000 	C:\Windows\syswow64\ADVAPI32.dll
+0x75910000 - 0x759bc000 	C:\Windows\syswow64\msvcrt.dll
+0x76090000 - 0x760a9000 	C:\Windows\SysWOW64\sechost.dll
+0x757d0000 - 0x758c0000 	C:\Windows\syswow64\RPCRT4.dll
+0x75260000 - 0x752c0000 	C:\Windows\syswow64\SspiCli.dll
+0x75250000 - 0x7525c000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x759f0000 - 0x75af0000 	C:\Windows\syswow64\USER32.dll
+0x76fb0000 - 0x77040000 	C:\Windows\syswow64\GDI32.dll
+0x756f0000 - 0x756fa000 	C:\Windows\syswow64\LPK.dll
+0x75730000 - 0x757cd000 	C:\Windows\syswow64\USP10.dll
+0x73830000 - 0x739ce000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x762d0000 - 0x76327000 	C:\Windows\syswow64\SHLWAPI.dll
+0x77040000 - 0x770a0000 	C:\Windows\system32\IMM32.DLL
+0x75af0000 - 0x75bbc000 	C:\Windows\syswow64\MSCTF.dll
+0x74c40000 - 0x74cff000 	C:\Program Files (x86)\Java\jre8\bin\msvcr100.dll
+0x74d40000 - 0x750d7000 	C:\Program Files (x86)\Java\jre8\bin\client\jvm.dll
+0x75160000 - 0x75167000 	C:\Windows\system32\WSOCK32.dll
+0x75f40000 - 0x75f75000 	C:\Windows\syswow64\WS2_32.dll
+0x75300000 - 0x75306000 	C:\Windows\syswow64\NSI.dll
+0x74d00000 - 0x74d32000 	C:\Windows\system32\WINMM.dll
+0x776d0000 - 0x776d5000 	C:\Windows\syswow64\PSAPI.DLL
+0x75190000 - 0x7519c000 	C:\Program Files (x86)\Java\jre8\bin\verify.dll
+0x74c10000 - 0x74c31000 	C:\Program Files (x86)\Java\jre8\bin\java.dll
+0x73e50000 - 0x73e79000 	C:\Program Files (x86)\Java\jre8\bin\jdwp.dll
+0x73ec0000 - 0x73ec7000 	C:\Program Files (x86)\Java\jre8\bin\npt.dll
+0x74bf0000 - 0x74c03000 	C:\Program Files (x86)\Java\jre8\bin\zip.dll
+0x76330000 - 0x76f7a000 	C:\Windows\syswow64\SHELL32.dll
+0x75d50000 - 0x75eac000 	C:\Windows\syswow64\ole32.dll
+0x739e0000 - 0x739eb000 	C:\Windows\system32\profapi.dll
+0x73e40000 - 0x73e48000 	C:\Program Files (x86)\Java\jre8\bin\dt_socket.dll
+0x74b40000 - 0x74b50000 	C:\Windows\system32\NLAapi.dll
+0x74b30000 - 0x74b40000 	C:\Windows\system32\napinsp.dll
+0x74b10000 - 0x74b22000 	C:\Windows\system32\pnrpnsp.dll
+0x75100000 - 0x7513c000 	C:\Windows\System32\mswsock.dll
+0x74b80000 - 0x74bc4000 	C:\Windows\system32\DNSAPI.dll
+0x74b00000 - 0x74b08000 	C:\Windows\System32\winrnr.dll
+0x751b0000 - 0x751cc000 	C:\Windows\system32\IPHLPAPI.DLL
+0x751a0000 - 0x751a7000 	C:\Windows\system32\WINNSI.DLL
+0x74ab0000 - 0x74ae8000 	C:\Windows\System32\fwpuclnt.dll
+0x74af0000 - 0x74af6000 	C:\Windows\system32\rasadhlp.dll
+0x750f0000 - 0x750f5000 	C:\Windows\System32\wshtcpip.dll
+0x715a0000 - 0x7168b000 	C:\Windows\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:64261 -Dfile.encoding=Cp1252 
+java_command: Main
+java_class_path (initial): C:\Users\Admin\workspace\Ass-8-InheritanceAndComposition\bin
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Program Files (x86)/Java/jre8/bin/client;C:/Program Files (x86)/Java/jre8/bin;C:/Program Files (x86)/Java/jre8/lib/i386;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Soft install\eclipse-jee-luna-R-win32\eclipse;
+USERNAME=Admin
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, clmul, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 8084148k(5767640k free), swap 16166452k(12514528k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.11-b03) for windows-x86 JRE (1.8.0_11-b12), built on Jun 16 2014 18:18:58 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Thu Jul 25 13:34:23 2019
+elapsed time: 967 seconds
+
