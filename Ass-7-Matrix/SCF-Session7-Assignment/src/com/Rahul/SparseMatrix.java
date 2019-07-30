@@ -3,7 +3,7 @@ package com.Rahul;
 /**
  * The class contains methods to operate on sparse matrices, transpose, addition
  * ,multiplication, checking Symmetric matrix. Time Complexity is O(N^2)
- * @author Shobhit Bhatnagar
+ * @author Rahul Vijay
  *
  */
 public class SparseMatrix {
