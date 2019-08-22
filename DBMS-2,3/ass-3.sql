@@ -162,13 +162,31 @@ order by s.state_name, c.city_name;
 5.2 Use the above view to display the Products(Items) which are in ‘shipped’ state.
 5.3 Use the above view to display the top 5 most selling products.*/
 
+/*5.1*/
 
-create view v as select testorder
+create view v as select o.order_id, p.product_id, p.product_name, c.quantity,
+(p.price * c.quantity) as price,
+s.shopper_name, s.email_id, o.created, c.status 
+from product p 
+inner join cart c on p.product_id = c.product_id
+inner join shopper s on s.shopper_id = c.cart_id
+inner join test.order o on o.cart_id = c.cart_id
+where o.created > CURDATE() - INTERVAL 60 DAY
+group by o.order_id,p.product_id
+order by o.created DESC;
 
 
 
+/*5.2*/
 
 
+select product_id, product_name, status from v where status = "shipped"; 
+
+
+/*5.3*/
+
+
+select product_id, count(quantity) as count from v group by product_id order by count DESC;
 
 
 
