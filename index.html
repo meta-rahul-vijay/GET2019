@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <div id = "registeration">
+        <form id = "registeration_form" onsubmit="employeeRegister() ;return false;"> 
+            <head>
+                <style> 
+                        th,td { 
+                            width:150px; 
+                            padding-bottom:40px;
+                            text-align: left;
+                        } 
+                        h1 {        
+                            color:green; 
+                        } 
+                </style>  
+                <title>Employee Registeration Form</title>
+                <h1 style = "text-align: center">Employee Registeration Form</h1>
+            </head>
+                <body>
+                    <table align = "center">
+                        <tr>
+                            <td><label>Full Name:</label></td>
+                            <td><input type="text" id = "full_name" placeholder="full name" required><br><label name="efull_name"></label></td>
+                        </tr>
+        
+                        <tr>
+                            <td><label>Gender:</label></td>
+                            <td>
+                                <select id = "gender">
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                    <option value="O">Other</option>
+                                </select>    
+                            </td>
+                        </tr>
+        
+                        <tr>
+                            <td><label>Email Id:</label></td>
+                            <td><input type="email" id = "email_id" placeholder="email id" required><br><label name="eemail_id"></label></td>
+                        </tr>
+        
+                        <tr>
+                                <td><label>Password:</label></td>
+                                <td><input type="password" id = "password" placeholder="password" required><br><label name="epassword"></label></td>
+                        </tr>
+        
+                        <tr>
+                                <td><label>Confirm Password:</label></td>
+                                <td><input type="password", id = "confirm_password" placeholder="confirm password" required><br><label name="econfirm_password"></label></td>
+                        </tr>
+        
+                        <tr>
+                                <td><label>Contact No</label></td>
+                                <td><input type="tel", id = "contact_no" placeholder="contact no" required><br><label name="econtact_no"></label></td>
+                        </tr>
+        
+                        <tr>
+                            <td align="center"><button type = "submit" style="color: rgb(252, 101, 0)">Register</button></td>
+                        </tr>
+                    </table>
+                </body>        
+        </form>
+    </div>
+
+    <div id = "vehicle" style="display: none">
+        <form id = "vehicle_form" onsubmit="getPass(); return false;">
+            <head>
+                <title>Vehicle Details Form</title>
+                <h1 style = "text-align: center">Vehicle Details Form</h1>
+            </head>
+            <body>
+                <table align = "center">
+                    <tr>
+                        <td><label>Name:</label></td>
+                        <td><input type="text", id = "vehicle_name"  placeholder="vehicle name" required></td>
+                    </tr>
+    
+                    <tr>
+                        <td><label>Vehicle Type:</label></td>
+                        <td>
+                            <select id = "vehicle_type">
+                                <option value="C">Cycle</option>
+                                <option value="M">MotorCycle</option>
+                                <option value="F">Four Wheelers</option>
+                            </select>    
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td><label>Vehicle Number:</label></td>
+                        <td><input type="number", id = "vehicle_no", placeholder="vehicle no" required></td>
+                    </tr>
+    
+                    <tr>
+                            <td><label>Employee Id:</label></td>
+                            <td><input type="text", id = "employee_id", placeholder="employee id" required></td>
+                    </tr>
+    
+                    <tr>
+                            <td><label>Identification:</label></td>
+                            <td><input type="text", id = "identification", placeholder="identification" required></td>
+                    </tr>
+    
+                    <tr>
+                        <td align="center"><button type = "submit" style="color: rgb(252, 101, 0)">Vehicle Details</button></td>
+                        <!-- <td align="center"><input style = "color: rgb(252, 101, 0)" type = "submit" name = 'getPass' value = 'Get Pass' class = "get_pass"></td> -->
+                    </tr>
+                </table>
+            </body>
+        </form>   
+    </div>
+
+    <div id = "pass" style="display: none">
+        <form id = "pass_price" onsubmit="submitPlan(); return false;">
+            <head>
+                <title>Price of vehicle</title>
+                <h1 style = "text-align: center" id = "heading_of_veh_type"></h1>
+            </head>
+            <body>
+                <div align = "center" id = "curr" style="padding-bottom: 10px">
+                    <label>Select Currency</label>
+                    <select id = "daily_curr" onchange="switchCurrency()">
+                        <option value = "INR">INR</option>
+                        <option value = "USD">USD</option>
+                        <option value = "YEN">YEN</option>
+                    </select>
+                </div>
+                <table align = "center">
+                    <tr>
+                        <th>Select</th>
+                        <th>Plan</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr id = "daily_row">
+                        <td><input type = "radio" id = "daily" name = "daily" value = "daily"></td>
+                        <td><label for = "daily">Daily</label></td>
+                        <td><label id = "daily_price"></label></td>
+                        
+                    </tr>
+                    <tr id = "monthly_row">
+                        <td><input type = "radio" id = "monthly" name = "daily" value = "monthly"></td>
+                        <td><label for = "monthly">Monthly</label></td>
+                        <td><label id = "monthly_price"></label></td>
+                    </tr>
+                    <tr id = "yearly_row">
+                        <td><input type = "radio" id = "yearly" name = "daily" value = "yearly"></td>
+                        <td><label for = "yearly">Yearly</label></td>
+                        <td><label id = "yearly_price"></label></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><button type = "submit" style="color: rgb(252, 101, 0)">Create Plan</button></td>
+                    </tr>
+                </table>
+            </body>
+        </form>   
+    </div>     
+
+
+    <script>
+        function employeeRegister(){
+            var count = 0;
+            var form = document.getElementById("registeration_form");
+            var name = document.getElementById('full_name').value;
+            var gender = document.getElementById('gender').value;
+            var email_id = document.getElementById('email_id').value;
+            var password = document.getElementById('password').value;
+            var confirm_password = document.getElementById('confirm_password').value;
+            var contact_no = document.getElementById('contact_no').value;
+            //var elements = document.getElementById("registeration_form").elements;
+            //var name = elements.item(0).value;
+            //var name = document.getElementsByName("full_name")[0].value;
+            var employee_id = Math.floor(Math.random()*1000 + 1);    
+
+            if (!(/^[A-z ]{2,}$/.test(name))) {
+                document.getElementsByName('efull_name')[0].innerHTML = "please enter valid name";
+                count++;
+            }
+            if (!(/^[A-z]+@[A-z]+\.[A-z]+$/.test(email_id))) {
+                document.getElementsByName("eemail_id")[0].innerHTML = "please enter valid email address";
+                count++;
+            }
+            if (!(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(password))) {
+                 document.getElementsByName('epassword')[0].innerHTML = "please enter strong password";
+                 count++;
+            }
+            if (password != confirm_password) {
+                document.getElementsByName('econfirm_password')[0].innerHTML = "password doesn't match";
+                count++;
+            }
+            if (!(/^[0-9]{10}$/.test(contact_no))) {
+                document.getElementsByName('econtact_no')[0].innerHTML = "please enter valid number";
+                count++;
+            }
+            if (count > 0) {
+                count = 0;
+                return;
+            }
+
+            document.getElementById("registeration").style.display = "none";
+            alert(employee_id);
+            //window.alert(employee_id);
+            document.getElementById("vehicle").style.display = "block";
+            var element = document.getElementById("employee_id");
+            element.value =  employee_id;
+        }
+
+        function getPass(){
+            var vehicle_name = document.getElementById("vehicle_name").value;
+            var vehicle_type = document.getElementById("vehicle_type").value;
+            var vehicle_no = document.getElementById("vehicle_no").value;
+            var employee_id = document.getElementById("employee_id").value;
+            var identification = document.getElementById("identification").value;
+            document.getElementById("vehicle").style.display = "none";
+            //alert(document.getElementById('identification').value);
+            document.getElementById("pass").style.display = "block";
+            document.getElementById("heading_of_veh_type").innerHTML = "Price of " + vehicle_type;
+            if(vehicle_type == "C"){
+                document.getElementById("daily_price").innerHTML = 5;
+                document.getElementById("monthly_price").innerHTML= 100;
+                document.getElementById("yearly_price").innerHTML = 500;
+            }else if(vehicle_type == "M"){
+                document.getElementById("daily_price").innerHTML = 10;
+                document.getElementById("monthly_price").innerHTML = 200;
+                document.getElementById("yearly_price").innerHTML = 1000;
+            }else{
+                document.getElementById("daily_price").innerHTML = 20;
+                document.getElementById("monthly_price").innerHTML = 500;
+                document.getElementById("yearly_price").innerHTML = 3500;
+            }
+        }
+
+        function switchCurrency(){
+            var vehicle_type = document.getElementById("vehicle_type").value;
+            var P_daily = 5;
+            var p_monthly = 100;
+            var p_yearly = 500;
+            if(vehicle_type == "M"){
+                P_daily = 10;
+                p_monthly = 200;
+                p_yearly = 1000;
+            }else if(vehicle_type == "F"){
+                P_daily = 20;
+                p_monthly = 500;
+                p_yearly = 3500;
+            }
+            if(vehicle_type == "C"){
+                if(document.getElementById("daily_curr").value == "USD"){
+                    document.getElementById("daily_price").innerHTML = 5/71.556;
+                    document.getElementById("monthly_price").innerHTML = 100/71.556;
+                    document.getElementById("yearly_price").innerHTML = 500/71.556;
+                }else if(document.getElementById("daily_curr").value == "YEN"){
+                    document.getElementById("daily_price").innerHTML = 5 * 1.488;
+                    document.getElementById("monthly_price").innerHTML = 100 * 1.488;
+                    document.getElementById("yearly_price").innerHTML = 500 * 1.488;
+                }else{
+                    document.getElementById("daily_price").innerHTML = 5;
+                    document.getElementById("monthly_price").innerHTML = 100;
+                    document.getElementById("yearly_price").innerHTML = 500;
+                }
+            }else if(vehicle_type == "M"){
+                if(document.getElementById("daily_curr").value == "USD"){
+                    document.getElementById("daily_price").innerHTML = 10/71.556;
+                    document.getElementById("monthly_price").innerHTML = 200/71.556;
+                    document.getElementById("yearly_price").innerHTML = 1000/71.556;
+                }else if(document.getElementById("daily_curr").value == "YEN"){
+                    document.getElementById("daily_price").innerHTML = 10 * 1.488;
+                    document.getElementById("monthly_price").innerHTML = 200 * 1.488;
+                    document.getElementById("yearly_price").innerHTML = 1000 * 1.488;
+                }else{
+                    document.getElementById("daily_price").innerHTML = 10;
+                    document.getElementById("monthly_price").innerHTML = 200;
+                    document.getElementById("yearly_price").innerHTML = 1000;
+                }
+            }else{
+                if(document.getElementById("daily_curr").value == "USD"){
+                    document.getElementById("daily_price").innerHTML = 20/71.556;
+                    document.getElementById("monthly_price").innerHTML = 500/71.556;
+                    document.getElementById("yearly_price").innerHTML = 3500/71.556;
+                }else if(document.getElementById("daily_curr").value == "YEN"){
+                    document.getElementById("daily_price").innerHTML = 20 * 1.488;
+                    document.getElementById("monthly_price").innerHTML = 500 * 1.488;
+                    document.getElementById("yearly_price").innerHTML = 3500 * 1.488;
+                }else{
+                    document.getElementById("daily_price").innerHTML = 20;
+                    document.getElementById("monthly_price").innerHTML = 500;
+                    document.getElementById("yearly_price").innerHTML = 3500;
+                }
+            }
+        }
+        function submitPlan(){
+            var emp_id = document.getElementById("employee_id").value;
+            var emp_name = document.getElementById("full_name").value;
+            var vehicle_name = document.getElementById("vehicle_name").value;
+            var vehicle_type = document.getElementById("vehicle_type").value;
+            if(document.getElementById("daily").checked){
+                var price = document.getElementById("daily_price").innerHTML;
+            }else if(document.getElementById("monthly").checked){
+                var price = document.getElementById("monthly_price").innerHTML;
+            }else if(document.getElementById("yearly").checked){
+                var price = document.getElementById("yearly_price").innerHTML;
+            }
+            document.getElementById("pass").style.display = "none";
+            alert("hello " + emp_name + " " + emp_id + " " + vehicle_name + " " + vehicle_type + " " + price);
+           // document.getElementById("pass").innerHTML = "Employee id" + "   " + emp_id + "     " + "Vechiel type" + "    " +  vehicle_type + "    "  + "Total price" + "    " + price;
+        }
+    </script>
+</html>
