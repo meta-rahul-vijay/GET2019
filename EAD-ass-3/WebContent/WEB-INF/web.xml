@@ -2,17 +2,17 @@
 <web-app>  
   
 <servlet>  
-<servlet-name>Register</servlet-name>  
-<servlet-class>com.Register.Register</servlet-class>  
+<servlet-name>RegisterServlet</servlet-name>  
+<servlet-class>com.Register.RegisterServlet</servlet-class>  
 </servlet>  
   
 <servlet-mapping>  
-<servlet-name>Register</servlet-name>  
-<url-pattern>/servlet/Register</url-pattern>  
+<servlet-name>RegisterServlet</servlet-name>  
+<url-pattern>/servlet/RegisterServlet</url-pattern>  
 </servlet-mapping>  
   
-<welcome-file-list>  
-    <welcome-file>register.html</welcome-file>  
+<welcome-file-list>
+    <welcome-file>Register.html</welcome-file>  
 </welcome-file-list>  
   
 </web-app>  
