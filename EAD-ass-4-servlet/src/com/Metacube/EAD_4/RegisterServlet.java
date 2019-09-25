@@ -1,5 +1,6 @@
 package com.Metacube.EAD_4;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +16,14 @@ public class RegisterServlet extends HttpServlet{
 										request.getParameter("Email Id"), request.getParameter("Password"),
 										request.getParameter("Confirm Password"), request.getParameter("Contact"),
 										request.getParameter("Organization"));
-		//System.out.println("Employee " +employee);
+		System.out.println("Employee " +employee);
 		
 		MetacubeParkingDao metacubeParkingDao = new MetacubeParkingDao();
 		
 		try{
 			metacubeParkingDao.addEmployee(employee);
+			RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");  
+	        rd.forward(request, response);  
 		}catch(Exception e){
 			e.printStackTrace();
 		}

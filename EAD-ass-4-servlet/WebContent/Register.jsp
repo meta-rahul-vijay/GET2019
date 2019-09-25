@@ -7,19 +7,24 @@
 	<body>
 		<div id = "register">
 			<h1>Registeration Form</h1>
-			<form action = "RegisterServlet" method = "post">
+			<form action = "RegisterServlet" method = "post" onsubmit = "registerEmp(); return false;">
 				<label>Full Name : </label>
 				<input type = "text" name = "Full Name" placeholder = "full name"><br/>
 				<label>Gender : </label>
-				<input type = "text" name = "Gender" placeholder = "gender"><br/>
+				<select name = "Gender">
+					<option value = "Male">Male</option>
+					<option value = "Female">Female</option>
+					<option value = "Other">Other</option>
+				</select><br/>
+				<!-- <input type = "text" name = "Gender" placeholder = "gender"><br/> -->
 				<label>Email Id : </label>
-				<input type = "text" name = "Email Id" placeholder = "email id"><br/>
+				<input type = "email" name = "Email Id" placeholder = "email id"><br/>
 				<label>Password : </label>
 				<input type = "password" name = "Password" placeholder = "password"><br/>
 				<label>Confirm Password : </label>
 				<input type = "password" name = "Confirm Password" placeholder = "confirm password"><br/>
 				<label>Contact Number: </label>
-				<input type = "text" name = "Contact" placeholder = "contact number"><br/>
+				<input type = "tel" name = "Contact" placeholder = "contact number"><br/>
 				<label>Organization: </label>
 				<select name="Organization">
   					<option value="Engineering">Engineering</option>
@@ -29,9 +34,10 @@
 				</select>
 				<br/>
 				<br/>
-				<input type = "submit" value = "register" id = "submit"/>
+				<input type = "submit" value = "Register" id = "submit"/>
 			</form>
 		</div>
 		
 	</body>
+	
 </html>

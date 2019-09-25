@@ -3,11 +3,12 @@ package com.Metacube.EAD_4;
 public class Employee {
 	String fullName;
 	String gender;
-	String emailId;
+	String emailId; 	
 	String password;
 	String confirmPassword;
 	String contact;
 	String organization;
+	int employeeId;
 	
 	public Employee(String fullName, String gender, String emailId,
 			String password, String confirmPassword, String contact,
@@ -22,6 +23,14 @@ public class Employee {
 		this.organization = organization;
 	}
 	
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
 	public String getFullName() {
 		return fullName;
 	}
