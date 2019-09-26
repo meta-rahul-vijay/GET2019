@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = 'SearchStudentServlet'>
+		<div><label for = 'student-search'>Choose Option</label></div>
+		<div>
+		<select name = 'searchType'>
+			<option value = 'name'>Student Name</option>
+			<option value = 'class'>Student Class</option>
+		</select>
+		</div>
+		<div>
+		<input type = 'text' name = 'searchField' placeholder = "enter search parameter">
+		<input type = 'submit' value = 'search' id = 'submit'>
+		</div>
+	</form>	
+</body>
+</html>
