@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.Metacube</groupId>
-	<artifactId>EAD-8</artifactId>
+	<artifactId>EAD-9</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>EAD-8</name>
+	<name>EAD-9</name>
 	<description>Spring Mvc-2</description>
 
 	<properties>
