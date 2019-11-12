@@ -1,0 +1,296 @@
+<html>
+
+<head>
+    <title>UI Assignment-1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        button {
+            width: 100%;
+            margin-bottom: 1%;
+        }
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            background-color: white;
+            color: blue;
+        }
+
+        .circle {
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            border-radius: 80px;
+            background: deepskyblue;
+        }
+
+        .circle label {
+            color: white;
+            margin-top: 20px;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <!--This is navigation bar-->
+    <ul class="nav nav-pills bg-primary">
+        <li class="nav-item">
+            <a href="#section-add-employee" class="nav-link">Add Employee Details</a>
+        </li>
+        <li class="nav-item">
+            <a href="#section-add-vehicle" class="nav-link">Add Vehcile Details</a>
+        </li>
+        <li class="nav-item">
+            <a href="#section-give-feedback" class="nav-link">Give Feedback</a>
+        </li>
+        <li class="nav-item">
+            <a href="#section-pricing" class="nav-link">Show Pricing</a>
+        </li>
+    </ul>
+    <!--This is main image-->
+    <div align="center" id="section-home" class="full-height">
+        <img src="logo.png">
+    </div>
+
+    <!--This is toggle button for employee form-->
+    <button data-toggle="collapse" class="btn btn-primary text-left font-weight-bold"
+        data-target="#section-add-employee" id="employee-collapse-btn">Add
+        Employee-</button>
+    <!--This is div for employee form-->
+    <div id="section-add-employee" class="collapse">
+        <section>
+            <div align="center">
+                <h1>Add Employee Details</h1>
+            </div>
+
+            <div class="container" id="employee-form">
+                <form action="" method="" class="form">
+                    <div class="form-group">
+                        <label for="employee-name">Full Name: </label>
+                        <input type="text" id="employee-name" class="form-control" placeholder="Enter Employee Name"
+                            required pattern="[a-zA-Z ]+" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender </label>
+                        <select name="gender" class="form-control" required>
+                            <option value="none">Select Gender</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-email">Email: </label>
+                        <input type="email" id="employee-email" class="form-control" placeholder="Enter Employee Email"
+                            required maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-contact">Phone Number: </label>
+                        <input type="text" id="employee-contact" class="form-control"
+                            placeholder="Enter Employee Contact" required pattern="[0-9]+" minlength="8" maxlength="11">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-password">Password: </label>
+                        <input type="text" id="employee-password" class="form-control" placeholder="Enter Password"
+                            required pattern="[0-9]+">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password: </label>
+                        <input type="text" id="confirm-password" class="form-control" placeholder="Confirm Password"
+                            required pattern="[0-9]+">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!--This is toggle button for vehicle form-->
+    <button data-toggle="collapse" class="btn btn-primary text-left font-weight-bold"
+        data-target="#section-add-vehicle">Add
+        Vehicle-</button>
+    <!--This is div for vehicle form-->
+    <div id="section-add-vehicle" class="collapse">
+        <section>
+            <div align="center">
+                <h1>Add Vehicle Details</h1>
+            </div>
+
+            <div class="container" id="vehicle-form">
+                <form action="" method="" class="form">
+                    <div class="form-group">
+                        <label for="vehicle-company">Company: </label>
+                        <input type="text" id="vehicle-company" class="form-control"
+                            placeholder="Enter Vehicle Make (Company)" required pattern="[a-zA-Z ]+" minlength="2"
+                            maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-model">Model: </label>
+                        <input type="text" id="vehicle-model" class="form-control" placeholder="Enter Vehicle Model"
+                            required pattern="[a-zA-Z0-9 ]+" minlength="2" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-type">Type </label>
+                        <select name="vehicle-type" class="form-control" required>
+                            <option value="none">Select Vehicle Type</option>
+                            <option value="cycle">Cycle</option>
+                            <option value="bike">Bike</option>
+                            <option value="car">Car</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-number">Number: </label>
+                        <input type="text" id="vehicle-number" class="form-control" placeholder="Enter Vehicle Number"
+                            required minlength="4" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-id">Employee Id: </label>
+                        <input type="text" id="employee-id" class="form-control" placeholder="Enter Employee Id"
+                            required pattern="[a-zA-Z0-9]+" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-description">Description</label>
+                        <textarea row="5" column="40" id="vehicle-description" class="form-control"
+                            placeholder="Enter Vehicle Description" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Vehicle</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!--This is toggle button for feedback form-->
+    <button data-toggle="collapse" class="btn btn-primary text-left font-weight-bold"
+        data-target="#section-give-feedback">Add
+        Feedback-</button>
+    <!--This is div for feedback form-->
+    <div id="section-give-feedback" class="collapse">
+        <section>
+            <div align="center">
+                <h1>Add Feedback</h1>
+            </div>
+
+            <div class="container" id="feedback-form">
+                <form action="" method="" class="form">
+                    <div class="form-group">
+                        <label for="employee-name">Name: </label>
+                        <input type="text" id="employee-name" class="form-control" placeholder="Enter Your Name"
+                            required pattern="[a-zA-Z ]+" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-email">Email: </label>
+                        <input type="email" id="employee-email" class="form-control" placeholder="Enter Your Email"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject: </label>
+                        <input type="text" id="subject" class="form-control" placeholder="Enter Subject" required
+                            pattern="[a-zA-Z ]+" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message: </label>
+                        <input type="text" id="message" class="form-control" placeholder="Enter Your Message" required
+                            pattern="[a-zA-Z ]+" maxlength="1000">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Feedback</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!--This is toggle button for pricing form-->
+    <button data-toggle="collapse" class="btn btn-primary text-left font-weight-bold"
+        data-target="#section-pricing" id="pricing-collapse-btn">Select
+        Plan-</button>
+    <!--This is div for pricing form-->
+    <div id="section-pricing" class="collapse">
+        <section>
+            <div align="center">
+                <h1>Pricing</h1>
+            </div>
+
+            <table align="center">
+                <tr>
+                    <td align="center">
+                        <div style="border:1px solid black;">
+                            <form action="" method="" class="form">
+                                <br>
+                                <div class="circle">
+                                    <label for="parking-plan"><strong>Cycle</strong></label><br />
+                                    <label>Rs5/day</label>
+                                </div>
+                                <br><br>
+                                <input type="radio" name="parking-plan" value="5" required><strong>Rs5</strong>
+                                Daily<br><br>
+                                <input type="radio" name="parking-plan" value="100" required><strong>Rs100</strong>
+                                Monthly<br><br>
+                                <input type="radio" name="parking-plan" value="500" required><strong>Rs500</strong>
+                                Yearly<br><br>
+                                <br>
+                                <button class="btn btn-primary">Purchase Now</button>
+                                <br>
+                            </form>
+                        </div>
+                    </td>
+
+
+                    <td align="center">
+                        <div style="border:1px solid black;">
+                            <form action="" method="" class="form">
+                                <br>
+                                <div class="circle">
+                                    <label for="parking-plan"><strong>MotorCycle</strong></label>
+                                    <label>Rs10/day</label>
+                                </div>
+                                <br><br>
+                                <input type="radio" name="parking-plan" value="10" required><strong>Rs10</strong>
+                                Daily<br><br>
+                                <input type="radio" name="parking-plan" value="200" required><strong>Rs200</strong>
+                                Monthly<br><br>
+                                <input type="radio" name="parking-plan" value="2000" required><strong>Rs1000</strong>
+                                Yearly<br><br>
+                                <br>
+                                <button class="btn btn-primary">Purchase Now</button>
+                                <br>
+                            </form>
+                        </div>
+                    </td>
+
+                    <td align="center">
+                        <div style="border:1px solid black;">
+                            <form action="" method="" class="form">
+                                <br>
+                                <div class="circle">
+                                    <label for="parking-plan"><strong>FourWheeler</strong></label>
+                                    <label>Rs20/day</label>
+                                </div>
+                                <br><br>
+                                <input type="radio" name="parking-plan" value="20" required><strong>Rs20</strong>
+                                Daily<br><br>
+                                <input type="radio" name="parking-plan" value="500" required><strong>Rs500</strong>
+                                Monthly<br><br>
+                                <input type="radio" name="parking-plan" value="3500" required><strong>Rs3500</strong>
+                                Yearly<br><br>
+                                <br>
+                                <button class="btn btn-primary">Purchase Now</button>
+                                <br>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body </html>
