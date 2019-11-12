@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+ datasource: 
+  url: jdbc:mysql://localhost:3306/Parking_System
+  username: root
+  password: 1234
+ mvc:
+   view:
+    prefix: /WEB-INF/views/
+    suffix: .jsp
+home:
+ notice: Welcome to student Management System
