@@ -1,0 +1,248 @@
+<html>
+<head>
+    <title>UI Assignment-1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+        background-color: #555;
+        color: white;
+        }
+
+        .full-height {
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $("a").on('click', function(event) {
+        
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 1000, function(){
+           
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            }
+          });
+        });
+    </script>
+
+</script>
+</head>
+<body>
+    <div align="center" id="section-home" class="full-height">
+        <img src="logo.png">
+        <br><br><br><br>
+
+        <section>
+            <ul>
+                <li><a href="#section-add-employee">Add Employee Details</a></li>
+                <li><a href="#section-add-vehicle">Add Vehcile Details</a></li>
+                <li><a href="#section-give-feedback">Give Feedback</a></li>
+                <li><a href="#section-pricing">Show Pricing</a></li>
+            </ul>
+        </section>
+    </div>
+    
+    <div align="center" id="section-add-employee" class="full-height">
+        <section>
+        <div>
+            <h1>Add Employee Details</h1>
+        </div>
+
+        <div>
+            <form action="" method="" class="form">
+                <label for="employee-name">Full Name: </label>
+                <input type="text" id="employee-name" size="40%" placeholder="Enter Employee Name" required pattern="[a-zA-Z ]+" maxlength="50"><br><br>
+                <label for="gender">Gender </label>
+                <select name="gender" required>
+                    <option value="none">Select Gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select><br><br>
+                <label for="employee-email">Email: </label>
+                <input type="email" id="employee-email" size="40%" placeholder="Enter Employee Email" required maxlength="50"><br><br>
+                <label for="employee-contact">Phone Number: </label>
+                <input type="text" id="employee-contact" size="40%" placeholder="Enter Employee Contact" required pattern="[0-9]+" minlength="8" maxlength="11"><br><br>
+                <label for="employee-password">Password: </label>
+                <input type="text" id="employee-password" size="40%" placeholder="Enter Password" required pattern="[0-9]+"><br><br>
+                <label for="confirm-password">Confirm Password: </label>
+                <input type="text" id="confirm-password" size="40%" placeholder="Confirm Password" required pattern="[0-9]+"><br><br>
+                <button type="button">
+                    <section>
+                        <ul>
+                            <li><a href="#section-add-vehicle">Add Employee Details</a></li>
+                        </ul>
+                    </section>
+                </button>
+            </form>
+        </div>
+        </section>
+    </div>
+    
+    <div align="center" id="section-add-vehicle" class="full-height">
+        <section>
+        <div>
+            <h1>Add Vehicle Details</h1>
+        </div>
+        
+        <div>
+            <form action="" method="" class="form">
+                <label for="vehicle-company">Company: </label>
+                <input type="text" id="vehicle-company" size="40%" placeholder="Enter Vehicle Make (Company)" required pattern="[a-zA-Z ]+" minlength="2" maxlength="50"><br><br>
+                <label for="vehicle-model">Model: </label>
+                <input type="text" id="vehicle-model" size="40%" placeholder="Enter Vehicle Model" required pattern="[a-zA-Z0-9 ]+" minlength="2" maxlength="50"><br><br>
+                <label for="vehicle-type">Type </label>
+                <select name="vehicle-type" required>
+                    <option value="none">Select Vehicle Type</option>
+                    <option value="cycle">Cycle</option>
+                    <option value="bike">Bike</option>
+                    <option value="car">Car</option>
+                </select><br><br>
+                <label for="vehicle-number">Number: </label>
+                <input type="text" id="vehicle-number" size="40%" placeholder="Enter Vehicle Number" required minlength="4" maxlength="50"><br><br>
+                <label for="employee-id">Employee Id: </label>
+                <input type="text" id="employee-id" size="40%" placeholder="Enter Employee Id" required pattern="[a-zA-Z0-9]+" maxlength="50"><br><br>
+                <label for="vehicle-description">Description</label>
+                <textarea row="5" column="40" id="vehicle-description" size="40%" placeholder="Enter Vehicle Description" required></textarea><br><br>
+                <button type="button">
+                    <section>
+                        <ul>
+                            <li><a href="#section-give-feedback">Add Vehicle Details</a></li>
+                        </ul>
+                    </section>
+                </button>
+            </form>
+        </div>
+        </section>
+    </div>
+
+    <div align="center" id="section-give-feedback" class="full-height">
+        <section>
+        <div>
+            <h1>Add Feedback</h1>
+        </div>
+            
+        <div>
+            <form action="" method="" class="form">
+                <label for="employee-name">Name: </label>
+                <input type="text" id="employee-name" size="40%" placeholder="Enter Your Name" required pattern="[a-zA-Z ]+" maxlength="50"><br><br>
+                <label for="employee-email">Email: </label>
+                <input type="email" id="employee-email" size="40%" placeholder="Enter Your Email" required><br><br>
+                <label for="subject">Subject: </label>
+                <input type="text" id="subject" size="40%" placeholder="Enter Subject" required pattern="[a-zA-Z ]+"  maxlength="100"><br><br>
+                <label for="message">Message: </label>
+                <input type="text" id="message" size="40%" placeholder="Enter Your Message" required pattern="[a-zA-Z ]+"  maxlength="1000"><br><br>
+                <button type="button">
+                    <section>
+                        <ul>
+                            <li><a href="#section-pricing">Submit Feedback</a></li>
+                        </ul>
+                    </section>
+                </button>
+            </form>
+        </div>
+        </section>
+    </div>
+
+    <div align="center" id="section-pricing" class="full-height">
+        <section>
+        <div>
+            <h1>Pricing</h1>
+        </div>
+        <br><br><br>
+
+        <table>
+            <tr>
+                <td align="center">
+                    <div style="border:1px solid black;">
+                    <form action="" method="" class="form">
+                        <br><label for="parking-plan">Cycle</label><br><br>
+                        <input type="radio" name="parking-plan" value="5" required>Rs5 Daily<br><br>
+                        <input type="radio" name="parking-plan" value="100" required>Rs100 Monthly<br><br>
+                        <input type="radio" name="parking-plan" value="500" required>Rs500 Yearly<br><br>
+                        <br>
+                        <button type="button">
+                            <section>
+                                <ul>
+                                    <li><a href="#section-home">Purchase Now</a></li>
+                                </ul>
+                            </section>
+                        </button>
+                        <br>
+                    </form>
+                    </div>
+                </td><td></td>
+            
+                <td align="center">
+                    <div style="border:1px solid black;">
+                    <form action="" method="" class="form">
+                        <br><label for="parking-plan">MotorCycle</label><br><br>
+                        <input type="radio" name="parking-plan" value="10" required>Rs10 Daily<br><br>
+                        <input type="radio" name="parking-plan" value="200" required>Rs200 Monthly<br><br>
+                        <input type="radio" name="parking-plan" value="2000" required>Rs1000 Yearly<br><br>
+                        <br>
+                        <button type="button">
+                            <section>
+                                <ul>
+                                    <li><a href="#section-home">Purchase Now</a></li>
+                                </ul>
+                            </section>
+                        </button>
+                        <br>
+                    </form>
+                    </div>
+                </td><td></td>
+            
+                <td align="center">
+                    <div style="border:1px solid black;">
+                    <form action="" method="" class="form">
+                        <br><label for="parking-plan">FourWheeler</label><br><br>
+                        <input type="radio" name="parking-plan" value="20" required>Rs20 Daily<br><br>
+                        <input type="radio" name="parking-plan" value="500" required>Rs500 Monthly<br><br>
+                        <input type="radio" name="parking-plan" value="3500" required>Rs3500 Yearly<br><br>
+                        <br>
+                        <button type="button">
+                            <section>
+                                <ul>
+                                    <li><a href="#section-home">Purchase Now</a></li>
+                                </ul>
+                            </section>
+                        </button>
+                        <br>
+                    </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        </section>
+    </div>        
+</body
+</html>
