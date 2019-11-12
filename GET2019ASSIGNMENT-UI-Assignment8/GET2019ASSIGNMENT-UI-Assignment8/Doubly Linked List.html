@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <script>
+        class Node {
+            // constructor 
+            constructor(element) {
+                this.element = element;
+                this.next = null;
+                this.previous = null;
+            }
+        }
+        // doubly linkedlist class 
+        class DoublyLinkedList {
+
+            constructor() {
+                this.head = null;
+                this.tail = null;
+            }
+
+            // add new element
+            add(element) {
+                var node = new Node(element);
+                if (!this.head) {
+                    this.head = node;
+                    this.tail = node;
+                }
+                else {
+                    node.prev = this.tail;
+                    this.tail.next = node;
+                    this.tail = node
+                }
+            }
+
+            addAt(pos, item) {
+                var current = this.head;
+                var counter = 1;
+                var node = new Node(item);
+                if (pos == 0) {
+                    this.head.prev = node
+                    node.next = this.head
+                    this.head = node
+                } 
+                else {
+                    while (current) {
+                        current = current.next;
+                        if (counter == pos) {
+                            node.prev = current.prev
+                            current.prev.next = node
+                            node.next = current
+                            current.prev = node
+                        }
+                        counter++
+                    }
+                }
+            }
+            // removes an element from the specified location 
+            removeAt(pos) {
+                var current = this.head;
+                var counter = 1;
+                if (pos == 0) {
+                    this.head = this.head.next;
+                    this.head.prev = null;
+                }
+                else {
+                    while (current) {
+                        current = current.next
+                        if (current == this.tail) {
+                            this.tail = this.tail.prev;
+                            this.tail.next = null;
+                        }
+                        else if (counter == pos) {
+                            current.prev.next = current.next;
+                            current.next.prev = current.prev;
+                            break;
+                        }
+                        counter++;
+                    }
+                }
+            }
+
+            // checks the list for empty 
+            length() {
+                var current = this.head;
+                var counter = 0;
+                while (current !== null) {
+                    counter++
+                    current = current.next
+                }
+                return counter;
+            }
+
+            isEmpty() {
+                return this.length() < 1
+            }
+
+            // prints the list items 
+            printList() {
+                var curr = this.head;
+                var str = "";
+                while (curr) {
+                    str += curr.element + " ";
+                    curr = curr.next;
+                }
+                console.log(str);
+            }
+        } 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
