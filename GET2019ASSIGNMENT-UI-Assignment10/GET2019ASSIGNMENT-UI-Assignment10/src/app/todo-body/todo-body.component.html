@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-md-3 bg-light rounded border" id="new" cdkDropList [cdkDropListConnectedTo]="['inProgress']">
+            <p class="text-dark font-weight-bold h5 text-center">New</p>
+            <div *ngFor="let todo of todos" cdkDrag>
+                <div class="rounded text-dark new-todo mb-2"
+                    [ngStyle]="{'background-color': getBackgroundColor(todo.priority)}" *ngIf="todo.status=='new'">
+                    <p class="text-left font-weight-bold h5">{{todo.title}}</p>
+                    <p>{{todo.description}}</p>
+                    <p class="p-0 m-0 font-weight-bold">Creation Date: </p>
+                    <p class="p-0 m-0">{{todo.creationDate}}</p>
+                    <p class="p-0 m-0 font-weight-bold">Completion Date: </p>
+                    <p>{{todo.completionDate}}</p>
+                    <app-todo-edit-form [id]="todo.id"></app-todo-edit-form>
+                    <button class="btn btn-danger" (click)="deleteTodo(todo.id)"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3  bg-light rounded border" id="inProgress" cdkDropList
+            [cdkDropListConnectedTo]="['completed']" (cdkDropListDropped)="dropInProgress($event)">
+            <p class="text-dark font-weight-bold h5 text-center">In Progress</p>
+            <div *ngFor="let todo of todos" cdkDrag>
+                <div class="rounded text-dark inprogress-todo mb-2"
+                    [ngStyle]="{'background-color': getBackgroundColor(todo.priority)}"
+                    *ngIf="todo.status=='inProgress'">
+                    <p class="text-left font-weight-bold h5">{{todo.title}}</p>
+                    <p>{{todo.description}}</p>
+                    <p class="p-0 m-0 font-weight-bold">Creation Date: </p>
+                    <p class="p-0 m-0">{{todo.creationDate}}</p>
+                    <p class="p-0 m-0 font-weight-bold">Completion Date: </p>
+                    <p>{{todo.completionDate}}</p>
+                    
+                    <app-todo-edit-form [id]="todo.id"></app-todo-edit-form>
+                    <button class="btn btn-danger" (click)="deleteTodo(todo.id)"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3  bg-light rounded border" id="completed" cdkDropList
+            (cdkDropListDropped)="dropInCompleted($event)">
+            <p class="text-dark font-weight-bold h5 text-center">Completed</p>
+            <div *ngFor="let todo of todos" cdkDrag>
+                <div class="rounded completed-todo mb-2" [ngStyle]="{'background-color':getBackgroundColor(todo.priority)}"
+                    *ngIf="todo.status=='completed'">
+                    <p class="text-left font-weight-bold h5">{{todo.title}}</p>
+                    <p>{{todo.description}}</p>
+                    <p class="p-0 m-0 font-weight-bold">Creation Date: </p>
+                    <p class="p-0 m-0">{{todo.creationDate}}</p>
+                    <p class="p-0 m-0 font-weight-bold">Completion Date: </p>
+                    <p>{{todo.completionDate}}</p>
+                    <button class="btn btn-danger" (click)="deleteTodo(todo.id)"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
