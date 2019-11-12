@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <script>
+        class Node {
+            // constructor 
+            constructor(element) {
+                this.element = element;
+                this.next = null;
+            }
+        }
+        // linkedlist class 
+        class LinkedList {
+
+            constructor() {
+                this.head = null;
+                this.size = 0;
+            }
+
+            // add new element
+            add(element) {
+                var node = new Node(element);
+                var current;
+                if (this.head == null)
+                    this.head = node;
+                else {
+                    current = this.head;
+                    while (current.next) {
+                        current = current.next;
+                    }
+                    current.next = node;
+                }
+                this.size++;
+            }
+
+            // removes an element from the specified location 
+            removeFrom(index) {
+                if (index < 0 || index > this.size)
+                    return -1;
+                else {
+                    var current, previous, tempIndex = 0;
+                    current = this.head;
+                    previous = current;
+                    if (index == 0) {
+                        this.head = current.next;
+                    } else {
+                        // iterate over the list to the position to remove an element 
+                        while (tempIndex < index) {
+                            tempIndex++;
+                            previous = current;
+                            current = current.next;
+                        }
+                        previous.next = current.next;
+                    }
+                    this.size--;
+                    // return the remove element 
+                    return current.element;
+                }
+            }
+
+            // checks the list for empty 
+            isEmpty() {
+                return this.size == 0;
+            }
+
+            // gives the size of the list 
+            size_of_list() {
+                console.log(this.size);
+            }
+
+            // prints the list items 
+            printList() {
+                var curr = this.head;
+                var str = "";
+                while (curr) {
+                    str += curr.element + " ";
+                    curr = curr.next;
+                }
+                console.log(str);
+            }
+        } 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
