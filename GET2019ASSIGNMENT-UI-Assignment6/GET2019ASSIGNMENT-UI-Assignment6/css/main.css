@@ -1,0 +1,62 @@
+body{
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none !important;
+    color: black;
+}
+
+.dashboard a:hover{
+    color:mediumpurple;
+}
+
+.sidebar{
+    position:fixed;
+    z-index: 1;
+    height:100%;
+}
+.dashboard li{
+    padding: 13px 0px !important;
+}
+.dashboard li:hover{
+    color: mediumpurple !important;
+}
+.sub-menu li{
+    padding: 5px 0px 5px 35px !important;
+}
+.sub-menu a:hover{
+    color:black !important;
+}
+#header{
+    height:75px;
+    background-color: #5B6BE8;
+}
+.search{
+    border: none;
+    border-radius: 10px;
+    background-color: #6D7BEB;
+    color: white;
+}
+::placeholder{
+    color:#ADB5F4;
+}
+.medium{
+    font-size: 15px;
+}
+#header ul{
+    float: right;
+}
+.headerBadge{
+    position:relative;
+    top:-10px;
+    left:-10px;
+}
+#main{
+    background-color: #EFF3F6;
+}
+#twitter{
+    background-color: #40A4F1;
+}
+.purple{
+    background-color: #5B6BE8;
+}
