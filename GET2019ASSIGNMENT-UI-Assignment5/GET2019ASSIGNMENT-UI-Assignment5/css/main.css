@@ -1,0 +1,45 @@
+.header{
+    border-bottom: 1px solid #e5e5e5;
+}
+.header a{
+    text-decoration: none;
+}
+.logo{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.25rem;
+}
+.display-4 {
+    font-size: 3rem;
+  }
+  h1, h2, h3{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  }
+
+  .blog-post {
+    margin-bottom: 4rem;
+  }
+  .blog-post-title {
+    margin-bottom: .25rem;
+    font-size: 2.5rem;
+  }
+  .blog-post-meta {
+    margin-bottom: 1.25rem;
+    color: #999;
+  }
+  .footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+  }
+  .footer p{
+    margin-bottom: 0;
+  }
+
+  .blog-footer {
+  margin-bottom: 4rem;
+}
+.blog-footer .btn {
+  border-radius: 2rem;
+}
